@@ -8,6 +8,10 @@ node_modules
 /.svelte-kit
 /build
 
+# Local design-comparison output from scripts/shoot*.mjs. Regenerated on demand, and
+# committing it means a binary churning on every run.
+/screenshots/
+
 # OS
 .DS_Store
 Thumbs.db

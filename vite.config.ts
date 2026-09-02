@@ -17,7 +17,12 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
-			adapter: adapter()
+			// Mumbai, to sit beside the Supabase project in ap-south-1. Vercel otherwise runs
+			// functions in Washington by default, and almost every route here does server-side
+			// database work, starting with the root layout resolving the session before anything
+			// renders, so each request would cross to Virginia and back before returning a page.
+			// One region only: multiple regions for serverless functions need an Enterprise plan.
+			adapter: adapter({ regions: ['bom1'] })
 		})
 	],
 	test: {
