@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+
+/* Self-hosted so the installed PWA renders correctly offline and on first paint. */
+@import '@fontsource-variable/nunito';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+
+/* Colours sampled directly from the design screens. */
+@theme {
+	--font-sans: 'Nunito Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Poppins', 'Nunito Variable', ui-sans-serif, system-ui, sans-serif;
+
+	--color-bg: #faf9f5;
+	--color-surface: #ffffff;
+	--color-muted: #f4f3ef;
+	--color-line: #e9e8e4;
+	--color-line-strong: #e3e2de;
+
+	/* Deep rust: wordmark, logo, play control, waveform, "Tap to Record", "Drop It" */
+	--color-primary: #aa3500;
+	--color-primary-soft: #fff0e0;
+	--color-primary-tint: #ffdcd0;
+
+	/* Bright orange: "I'm In" and the create FAB */
+	--color-action: #fe6b35;
+
+	--color-recording: #b7191a;
+
+	--color-ink: #0f0f0f;
+	--color-ink-label: #4a3b35;
+	--color-ink-muted: #6b625e;
+
+	/* One tint per vibe, so the tag colour is learnable across screens.
+	   chill and food are sampled from the feed cards; the rest extend that palette. */
+	--color-vibe-chill: #dde0ff;
+	--color-vibe-food: #ffe29f;
+	--color-vibe-active: #ece8dc;
+	--color-vibe-movie: #e6dcff;
+	--color-vibe-music: #ffd9e8;
+	--color-vibe-outdoors: #d6ecd8;
+
+	--color-vibe-chill-ink: #3d4a99;
+	--color-vibe-food-ink: #7a5312;
+	--color-vibe-active-ink: #5f5535;
+	--color-vibe-movie-ink: #55409c;
+	--color-vibe-music-ink: #96305c;
+	--color-vibe-outdoors-ink: #2f6b3c;
+
+	--radius-card: 1rem;
+	--radius-field: 0.875rem;
+}
+
+html {
+	background-color: var(--color-bg);
+	color: var(--color-ink);
+	-webkit-tap-highlight-color: transparent;
+}
+
+body {
+	/* The app is a fixed-viewport shell: only the feed list scrolls. */
+	overscroll-behavior-y: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+}
